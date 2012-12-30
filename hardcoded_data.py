@@ -1,13 +1,24 @@
-def hardcoded_rating_data():
-    rating_list= []
-    rating_list_obj1 = {"user_id":2,"movie_id":1,"rate":4}
-    rating_list_obj2 = {"user_id":1,"movie_id":1,"rate":2}
-    rating_list_obj3 = {"user_id":4,"movie_id":4,"rate":3}
-    rating_list_obj4 = {"user_id":3,"movie_id":3,"rate":5}
-    rating_list.append(rating_list_obj1)
-    rating_list.append(rating_list_obj2)
-    rating_list.append(rating_list_obj3)
-    rating_list.append(rating_list_obj4)
-    return rating_list
+def hardcoded_rating_data() :
+    rating_dict = []
+    rating_dict_obj1 = {"user_id":2,"movie_id":1,"rate":4}
+    rating_dict_obj2 = {"user_id":1,"movie_id":1,"rate":2}
+    rating_dict_obj3 = {"user_id":4,"movie_id":4,"rate":3}
+    rating_dict_obj4 = {"user_id":3,"movie_id":3,"rate":5}
+    rating_dict.append(rating_dict_obj1)
+    rating_dict.append(rating_dict_obj2)
+    rating_dict.append(rating_dict_obj3)
+    rating_dict.append(rating_dict_obj4)
+    return rating_dict
     
-def 
+def hardcoded_genre_data() :
+    genre_list = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+    return genre_list
+    
+def hardcoded_movies_data() :
+    movies_dict = {}
+    
+    movie_genre1 = ["Animation","Children's","Comedy"]
+    movies_dict[1] ={"movie_watched_count":176,"movie_total_rating":18,"movie_id":1,"movie_title":"Toy Story (1995)","release_data":"01-Jan-1995","genres": movie_genre1}
+    movies_dict[2] ={"movie_watched_count":122,"movie_total_rating":8,"movie_id":2,"movie_title":"GoldenEye (1995)","release_data":"01-Jan-1995","genres": movie_genre1}
+    
+    return movies_dict

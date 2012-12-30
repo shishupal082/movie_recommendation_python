@@ -1,30 +1,21 @@
 import hardcoded_data
+import file_data
 def main():
 
-    rating_list = hardcoded_data.hardcoded_rating_data()   
-    #Most Watched Movie **************************************
-    movie_watched_count = [0]
-    i = 0
-    max_movie_id = 4
-    
-    while i < max_movie_id :
-        movie_watched_count.append(0)
-        i = i+1
+    rating_dict = hardcoded_data.hardcoded_rating_data()
         
-    i = 0
-    while i < len(rating_list) :
-        movie_watched_count[rating_list[i]["movie_id"]] = 1 + movie_watched_count[rating_list[i]["movie_id"]]
-        i = i+1
+    movies_dict = hardcoded_data.hardcoded_movies_data()
+    #Most Watched Movie **************************************
+    most_watched_movie_count = 0
+    most_watched_movie_id = 0
+    for movie_id in movies_dict :
+        if movies_dict[movie_id]['movie_watched_count'] > most_watched_movie_count :
+            most_watched_movie_count = movies_dict[movie_id]['movie_watched_count']
+            most_watched_movie_id = movie_id
     
-    i=0 
-    x = max(movie_watched_count)
-    
-    while i < max_movie_id+1 :
-        if x == movie_watched_count[i] :
-            most_watched_movie_id = i
-            print("Most Watched Movie ID = " + str(i))
-            break
-        i = i+1
+    print(movies_dict[most_watched_movie_id]['movie_title'])
     #Top Movie By Genre **************************************
+    
+
 if __name__ == "__main__":
     main()
