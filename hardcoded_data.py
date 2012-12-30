@@ -17,8 +17,9 @@ def hardcoded_genre_data() :
 def hardcoded_movies_data() :
     movies_dict = {}
     
-    movie_genre1 = ["Animation","Children's","Comedy"]
-    movies_dict[1] ={"movie_watched_count":176,"movie_total_rating":18,"movie_id":1,"movie_title":"Toy Story (1995)","release_data":"01-Jan-1995","genres": movie_genre1}
-    movies_dict[2] ={"movie_watched_count":122,"movie_total_rating":8,"movie_id":2,"movie_title":"GoldenEye (1995)","release_data":"01-Jan-1995","genres": movie_genre1}
+    movie_genre1 = ["animation","children's","comedy"]
+    movies_dict[1] ={"movie_watched_count":6,"movie_total_rating":19,"movie_id":1,"movie_title":"Toy Story (1995)","release_data":"01-Jan-1995","genres": movie_genre1}
+    movie_genre2 = ["comedy","crime","drama"]
+    movies_dict[2] ={"movie_watched_count":2,"movie_total_rating":8,"movie_id":2,"movie_title":"GoldenEye (1995)","release_data":"01-Jan-1995","genres": movie_genre2}
     
     return movies_dict
