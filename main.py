@@ -38,12 +38,10 @@ def main():
     
     #**************** Most Watched Genre ****************************************
     genre_count_dictionary = {"unknown":0,"action":0,"adventure":0,"animation":0,"children's":0,"comedy":0,"crime":0,"documentary":0,"drama":0,"fantasy":0,"film-noir":0,"horror":0,"musical":0,"mystery":0,"romance":0,"sci-fi":0,"thriller":0,"war":0,"western":0}
-    
-    
-    
+   
     for movie_id in movies_dict :
-        genre_list = movies_dict[movie_id]["genres"]
-        for genre in genre_list :
+        movie_genre_list = movies_dict[movie_id]["genres"]
+        for genre in movie_genre_list :
             genre_count_dictionary[genre] = 1 + genre_count_dictionary[genre]
     
     #print(genre_count_dictionary)
@@ -56,6 +54,33 @@ def main():
             genre = key_genre
     
     print("Most Watched Genre:\t\t"+genre)
+    
+    #**************** Highest Rated Genre ***************************************
+    genre_total_rating_dictionary = {"unknown":0,"action":0,"adventure":0,"animation":0,"children's":0,"comedy":0,"crime":0,"documentary":0,"drama":0,"fantasy":0,"film-noir":0,"horror":0,"musical":0,"mystery":0,"romance":0,"sci-fi":0,"thriller":0,"war":0,"western":0}
+    
+    for movie_id in movies_dict :
+        movie_genre_list = movies_dict[movie_id]["genres"]
+        movie_rate = movies_dict[movie_id]["movie_total_rating"]/movies_dict[movie_id]["movie_watched_count"]
+        for genre in movie_genre_list :
+            genre_total_rating_dictionary[genre] = genre_total_rating_dictionary[genre] + movie_rate
+    
+    #print(genre_total_rating_dictionary)
+    genre_rating_dictionary =  {"unknown":0,"action":0,"adventure":0,"animation":0,"children's":0,"comedy":0,"crime":0,"documentary":0,"drama":0,"fantasy":0,"film-noir":0,"horror":0,"musical":0,"mystery":0,"romance":0,"sci-fi":0,"thriller":0,"war":0,"western":0}
+    
+    genre_rating_dictionary["unknown"] = genre_total_rating_dictionary["unknown"]/genre_count_dictionary["unknown"]
+    for key_genre in genre_rating_dictionary :
+        genre_rating_dictionary[key_genre] = genre_total_rating_dictionary[key_genre]/genre_count_dictionary[key_genre]
+    
+    #print(genre_rating_dictionary)
+    max_genre_rating = genre_rating_dictionary["unknown"]
+    genre = "unknown"
+    for key_genre in genre_rating_dictionary :
+        if genre_rating_dictionary[key_genre] > max_genre_rating :
+            max_genre_rating = genre_rating_dictionary[key_genre]
+            genre = key_genre
+    
+    print("Highest Rated Genre:\t\t"+genre)
+    
     print("_____________________________________________________________")
 if __name__ == "__main__":
     main()

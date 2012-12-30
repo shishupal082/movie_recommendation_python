@@ -23,7 +23,6 @@ def file_updated_movies_data() :
         tokens = line.split('\t')
         updated_movies_dict[int(tokens[1])]["movie_watched_count"] = 1+updated_movies_dict[int(tokens[1])]["movie_watched_count"]
         updated_movies_dict[int(tokens[1])]["movie_total_rating"] = updated_movies_dict[int(tokens[1])]["movie_total_rating"] + int(tokens[2])
-    print(updated_movies_dict[1])
     return updated_movies_dict
 #if __name__ == "__main__":
     #file_updated_movies_data()
