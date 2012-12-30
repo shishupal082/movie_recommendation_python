@@ -3,11 +3,12 @@ import hardcoded_data
 import file_data
 
 def main():
-
-    rating_dict = hardcoded_data.hardcoded_rating_data()
-        
-    movies_dict = hardcoded_data.hardcoded_movies_data()
-    #Most Watched Movie **************************************
+    
+    movies_dict = file_data.file_updated_movies_data()
+    
+    #movies_dict = hardcoded_data.hardcoded_movies_data()
+    print("_____________________________________________________________")
+    #******************Most Watched Movie **************************************
     most_watched_movie_count = 0
     most_watched_movie_id = 0
     for movie_id in movies_dict :
@@ -15,11 +16,11 @@ def main():
             most_watched_movie_count = movies_dict[movie_id]['movie_watched_count']
             most_watched_movie_id = movie_id
     
-    print("Most Watched Movie:\t" + movies_dict[most_watched_movie_id]['movie_title'])
+    print("Most Watched Movie:\t\t\t" + movies_dict[most_watched_movie_id]['movie_title'])
     
     #Top Movie By Genre **************************************
     
-    input_genre = "comedy"
+    input_genre = "war"
     movie_id_list = []
     for movie_id in movies_dict :
         genre_list = movies_dict[movie_id]["genres"]
@@ -33,6 +34,7 @@ def main():
         movie_rating = (movies_dict[movie_id]["movie_total_rating"]) / (movies_dict[movie_id]['movie_watched_count'])
         if movie_rating > max_rating :
             max_rating_movie_id_in_this_genre = movie_id
-    print("Top movie of genre'"+input_genre+"':\t"+movies_dict[max_rating_movie_id_in_this_genre]['movie_title'])
+    print("Top movie by genre'("+input_genre+")':\t"+movies_dict[max_rating_movie_id_in_this_genre]['movie_title'])
+    print("_____________________________________________________________")
 if __name__ == "__main__":
     main()
